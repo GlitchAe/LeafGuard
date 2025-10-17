@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".HasilScanFragment">
+
+    <TextView
+        android:id="@+id/tv_title_hasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leaf Detection"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_hasil_gambar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="32dp"
+        android:src="@drawable/logo_leaf"
+        android:background="#EFEFEF"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_hasil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1" />
+
+    <TextView
+        android:id="@+id/tv_label_diagnosis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diagnosis:"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_hasil_gambar"
+        app:layout_constraintStart_toStartOf="@id/iv_hasil_gambar" />
+
+    <TextView
+        android:id="@+id/tv_hasil_diagnosis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Penyakit Sigatoka"
+        android:textColor="#333333"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/tv_label_diagnosis"
+        app:layout_constraintStart_toEndOf="@id/tv_label_diagnosis" />
+
+    <TextView
+        android:id="@+id/tv_hasil_deskripsi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_diagnosis"
+        app:layout_constraintStart_toStartOf="@id/tv_label_diagnosis"
+        app:layout_constraintEnd_toEndOf="@id/iv_hasil_gambar" />
+
+    <ImageButton
+        android:id="@+id/btn_simpan"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_add"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Simpan Hasil"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_hapus" />
+
+    <ImageButton
+        android:id="@+id/btn_hapus"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_delete"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Hapus Hasil"
+        app:layout_constraintBottom_toBottomOf="@id/btn_simpan"
+        app:layout_constraintStart_toEndOf="@id/btn_simpan"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

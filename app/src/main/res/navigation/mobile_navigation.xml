@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.leafguard.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_scanner"
+        android:name="com.example.leafguard.ScannerFragment"
+        android:label="Scanner"
+        tools:layout="@layout/fragment_scanner" >
+
+        <action
+            android:id="@+id/action_scanner_to_hasil"
+            app:destination="@id/hasilScanFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/hasilScanFragment"
+        android:name="com.example.leafguard.HasilScanFragment"
+        android:label="Hasil Scan"
+        tools:layout="@layout/fragment_hasil_scan" />
+
+    <fragment
+        android:id="@+id/penyakitDetailFragment"
+        android:name="com.example.leafguard.PenyakitDetailFragment"
+        android:label="Detail Penyakit"
+        tools:layout="@layout/fragment_penyakit_detail" />
+
+    <fragment
+        android:id="@+id/navigation_riwayat"
+        android:name="com.example.leafguard.RiwayatFragment"
+        android:label="Riwayat"
+        tools:layout="@layout/fragment_riwayat">
+
+        <action
+            android:id="@+id/action_riwayat_to_detail"
+            app:destination="@id/penyakitDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.leafguard.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
