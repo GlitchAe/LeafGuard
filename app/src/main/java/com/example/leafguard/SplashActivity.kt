@@ -5,27 +5,31 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 
 // Setiap Activity harus berada di file terpisah.
 class SplashActivity : AppCompatActivity() {
 
-    // Atur durasi splash screen (misalnya 3000ms = 3 detik)
-    private val SPLASH_DELAY: Long = 3000
+    private val SPLASH_DELAY: Long = 2000 // Kurangi delay sedikit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        // Hubungkan dengan layout XML-nya
+        supportActionBar?.hide()
         setContentView(R.layout.activity_splash)
 
-        // Gunakan Handler untuk menunda perpindahan ke MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
-            // Buat Intent untuk pindah ke MainActivity
-            val mainIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainIntent)
+            // Cek status login dari SharedPreferences
+            val sharedPref = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+            val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false) // Default false
 
-            // Tutup SplashActivity agar tidak bisa kembali ke sini
+            val nextIntent = if (isLoggedIn) {
+                // Jika sudah login, ke MainActivity
+                Intent(this, MainActivity::class.java)
+            } else {
+                // Jika belum login, ke LoginActivity
+                Intent(this, LoginActivity::class.java)
+            }
+            startActivity(nextIntent)
             finish()
         }, SPLASH_DELAY)
     }
